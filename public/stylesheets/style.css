@@ -1,0 +1,10 @@
+#legend {
+    background-color: #3C5A76;
+    border: 2px solid #CCCCCC;
+    color: #EEEEEE;
+    font-weight: bold;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    padding: 15px;
+}
