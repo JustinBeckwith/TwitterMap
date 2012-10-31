@@ -15,13 +15,21 @@ $(function () {
     });
     map.entities.push(box);
 
-    var queue = [];
     var socket = io.connect();
-    socket.on('tweet', function (tweet) {
-        var location = new Microsoft.Maps.Location(tweet.coordinates.coordinates[1], tweet.coordinates.coordinates[0]);
+    socket.on('tweet', function (tweet) {       
+        addTweet(tweet.coordinates.coordinates[1], tweet.coordinates.coordinates[0], tweet.user.name, tweet.text);
+    });
+
+    // add default tweet
+    addTweet(47.642337, -122.136453, "BradleyMillington", "What's with this guy and apps that use Bing maps?");
+
+
+    // add a new pin to the map
+    function addTweet(lat, long, username, status) {
+        var location = new Microsoft.Maps.Location(lat, long);
         var pin = new Microsoft.Maps.Pushpin(location, { text: 't' });
-        pin.title = tweet.user.name;
-        pin.description = tweet.text;
+        pin.title = username;
+        pin.description = status;
 
         Microsoft.Maps.Events.addHandler(pin, 'click', function (e) {
             box.setLocation(e.target.getLocation());
@@ -32,20 +40,19 @@ $(function () {
             box.setOptions({ visible: false });
         });
 
-        map.entities.push(pin);        
-    });
+        map.entities.push(pin);
+    }    
 
     // clean up old pins
-    setInterval(function() {        
-        var i = 0;
+    setInterval(function () {
+        var i = 1;
         while (map.entities.getLength() > 1000) {
             var entity = map.entities.get(i);
-            if (entity instanceof Microsoft.Maps.Pushpin) {
-                console.log(map.entities.getLength());                
+            if (entity instanceof Microsoft.Maps.Pushpin) {                
                 map.entities.removeAt(i);
             }
             i++;
-        }        
+        }
     }, 1000)
 });
 
