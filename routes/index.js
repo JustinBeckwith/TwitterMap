@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Awsome Azure Map' })
+  res.render('index', { title: 'Awesome Azure Map' })
 };
