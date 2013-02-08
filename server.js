@@ -49,10 +49,10 @@ io.configure(function () {
 console.log('getting my twitters on');
 
 var t = new twit({
-    consumer_key: nconf.get('consumer_key'),
-    consumer_secret: nconf.get('consumer_secret'),
-    access_token: nconf.get('access_token'),
-    access_token_secret: nconf.get('access_token_secret')
+    consumer_key: nconf.get('TWITTER_CONSUMER_KEY'),
+    consumer_secret: nconf.get('TWITTER_CONSUMER_SECRET'),
+    access_token: nconf.get('TWITTER_ACCESS_TOKEN'),
+    access_token_secret: nconf.get('TWITTER_ACCESS_TOKEN_SECRET')
 });
 
 console.log('start the stream');
