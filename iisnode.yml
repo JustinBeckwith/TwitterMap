@@ -2,8 +2,8 @@
 # should be disabled in production deployments:
 
 loggingEnabled: true
-debuggingEnabled: false
-devErrorsEnabled: false
+debuggingEnabled: true
+devErrorsEnabled: true
 node_env: production
 
 # Other settings with their default values follow.
