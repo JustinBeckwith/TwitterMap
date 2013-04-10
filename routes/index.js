@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'TwitterMap' })
+  res.render('index', { title: 'TwitterMap NOW ON AZURE' })
 };
