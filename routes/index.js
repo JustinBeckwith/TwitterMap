@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Windows Azure Rocks!' })
+  res.render('index', { title: 'Windows Azure Rocks * 10!' })
 };

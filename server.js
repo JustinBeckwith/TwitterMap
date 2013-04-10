@@ -48,6 +48,11 @@ io.configure(function () {
 
 console.log('getting my twitters on');
 
+console.log(nconf.get('twitter_consumer_key'));
+console.log(nconf.get('twitter_consumer_secret'));
+console.log(nconf.get('twitter_access_token'));
+console.log(nconf.get('twitter_access_token_secret'));
+
 var t = new twit({
     consumer_key: nconf.get('twitter_consumer_key'),
     consumer_secret: nconf.get('twitter_consumer_secret'),
