@@ -110,7 +110,6 @@ exitWithMessageOnError "npm failed"
 cd - > /dev/null
 
 # 3. Run the tests
-MOCHA_COMMAND="mocha"
 echo "Running Unit Tests"
 $MOCHA_COMMAND
 exitWithMessageOnError "Unit tests failed"
