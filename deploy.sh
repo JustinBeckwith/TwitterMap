@@ -134,7 +134,7 @@ curl -X POST 'https://api.twilio.com/2010-04-01/Accounts/AC4535a3259069b70dbc641
 -d 'From=4155992671' \
 -d 'To=7247771008' \
 -d 'Body=Deployment+Success%21' \
--u AC4535a3259069b70dbc641954a9b7ae0f:{AuthToken}
+-u AC4535a3259069b70dbc641954a9b7ae0f:f5c3c5f80a251cdf571812483d09ba3c
 
 
 echo "Finished successfully."
