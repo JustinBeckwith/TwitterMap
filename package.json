@@ -28,7 +28,7 @@
   "noAnalyze": true,
   "license": "Apache",
   "engines": {
-    "node": "0.10.5"
+    "node": "0.8.19"
   }
 }
 
