@@ -99,7 +99,21 @@ selectNodeVersion () {
 # Run Mocha Tests
 # ----------
 
+# 1. Select node version
+echo "getting node version"
+selectNodeVersion
+
+# 2. Install npm packages
+echo "install NPM modules"
+eval $NPM_CMD install --production
+exitWithMessageOnError "npm failed"
+cd - > /dev/null
+
+# 3. Run the tests
+MOCHA_COMMAND="mocha tests"
 echo "Running Unit Tests"
+$MOCHA_COMMAND
+exitWithMessageOnError "Unit tests failed"
 
 
 ##################################################################################################################################
@@ -111,18 +125,6 @@ echo Handling node.js deployment.
 # 1. KuduSync
 $KUDU_SYNC_CMD -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
 exitWithMessageOnError "Kudu Sync failed"
-
-# 2. Select node version
-selectNodeVersion
-
-# 3. Install npm packages
-if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
-  cd "$DEPLOYMENT_TARGET"
-  eval $NPM_CMD install --production
-  exitWithMessageOnError "npm failed"
-  cd - > /dev/null
-fi
-
 
 
 ##################################################################################################################################
